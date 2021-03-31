@@ -3,7 +3,7 @@ import { heroData } from '../data/heroes';
 import { useParams } from 'react-router-dom';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
-const powers = [
+const powers = [   
   'super strength',
   'super speed',
   'regeneration',
@@ -11,9 +11,9 @@ const powers = [
   'telekinesis',
 ];
 
-const HeroPage = () => {
+ const HeroPage = () => {            
   let { heroId } = useParams();
-  const [hero, setHero] = useState({
+  const [hero, setHero] = useState({   // can also be the ? conditional operator to map the characters in the array using {hero.characters?.map
     superhero: '',
     publisher: '',
     alter_ego: '',
@@ -22,7 +22,7 @@ const HeroPage = () => {
     featured: false,
     image_url: '',
   });
-  const [alert, setAlert] = useState(false);
+const [alert, setAlert] = useState(false); 
 
   useEffect(() => {
     let foundHero = heroData.find(h => h.id === +heroId);
@@ -112,7 +112,7 @@ const HeroPage = () => {
                     <div className='detail'>
                       <h4 className='text-primary'>Characters</h4>
                       <p className='ml-5'>
-                        {hero.characters?.map((ch, i) => {
+                        {hero.characters?.map((ch, i) => {     // ? used for if characters exist map characters from the array
                           return (
                             <span key={i}>
                               {ch}
